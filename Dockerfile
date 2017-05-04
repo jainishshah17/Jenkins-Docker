@@ -3,12 +3,19 @@ FROM ubuntu:14.04
 MAINTAINER Jainish Shah <jainishshah@yahoo.com>
 
 # Let's start with some basic stuff.
-RUN apt-get update -qq && apt-get install -qqy \
+RUN apt-get update -qq && apt-get install -qqy nano curl  \
     apt-transport-https \
     ca-certificates \
     curl \
     lxc \
     iptables
+
+# Install Java 8
+RUN apt-get install -y software-properties-common python-software-properties && apt-add-repository -y ppa:webupd8team/java && apt-get update && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections && apt-get install -y oracle-java8-installer
+
+# Install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+RUN apt-get install -y nodejs
 
 # Install Docker from Docker Inc. repositories.
 RUN curl -sSL https://get.docker.com/ | sh
