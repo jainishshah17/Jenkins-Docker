@@ -7,5 +7,5 @@ Because Docker container proivdes an isolated environment for running applicatio
 Run it with mounted directory from host:
 
 ```
-docker run --name jenkins-dind --privileged -d -p 8080:8080 -v /your/path:/var/lib/jenkins jainishshah17/jenkins
+docker run --name jenkins-dind --privileged -d -p 8080:8080 -e DOCKER_DAEMON_ARGS="--insecure-registry 0.0.0.0/0" -v /your/path:/var/lib/jenkins jainishshah17/jenkins
 ```
