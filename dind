@@ -8,6 +8,7 @@ set -e
 
 # Usage: dind CMD [ARG...]
 
+# apparmor sucks and Docker needs to know that it's in a container (c) @tianon
 export container=docker
 
 # as of docker 1.8, cgroups will be mounted in the container
