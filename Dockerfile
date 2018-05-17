@@ -14,7 +14,7 @@ RUN apt-get update -qq && apt-get install -qqy nano curl  \
 RUN apt-get install -y software-properties-common python-software-properties && apt-add-repository -y ppa:webupd8team/java && apt-get update && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections && apt-get install -y oracle-java8-installer
 
 # Install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 RUN apt-get install -y nodejs
 
 # Install Docker from Docker Inc. repositories.
