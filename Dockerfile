@@ -28,10 +28,11 @@ RUN chmod +x /usr/local/bin/wrapdocker
 VOLUME /var/lib/docker
 
 ENV DOCKER_COMPOSE_VERSION 1.11.2
+ENV JENKINS_VERSION 2.175
 
 RUN wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 RUN sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
-RUN apt-get update && apt-get install -y zip supervisor jenkins git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y zip supervisor jenkins=${JENKINS_VERSION} git && rm -rf /var/lib/apt/lists/*
 RUN usermod -a -G docker jenkins
 ENV JENKINS_HOME /var/lib/jenkins
 VOLUME /var/lib/jenkins
