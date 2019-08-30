@@ -28,7 +28,7 @@ RUN chmod +x /usr/local/bin/wrapdocker
 VOLUME /var/lib/docker
 
 ENV DOCKER_COMPOSE_VERSION 1.11.2
-ENV JENKINS_VERSION 2.175
+ENV JENKINS_VERSION 2.192
 
 RUN wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 RUN sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
